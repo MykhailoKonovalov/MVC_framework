@@ -23,8 +23,9 @@ nav, .dropdown-menu{
     width: 70%;
 }
 
-#signup-form, #profile-form, #recipes-list, #recipe{
+#signup-form, #signin-form, #profile-form, #recipes-list, #recipe{
     margin-top: 5%;
+    margin-bottom: 2%;
 }
 
 .col-md-8{
