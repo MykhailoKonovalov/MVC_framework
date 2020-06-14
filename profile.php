@@ -28,44 +28,22 @@
     </div>
     <div class="container col-8" id="wish-list">
         <h3 class="text-center">Список обраних рецептів</h3>
+        <?php foreach ($recipes as $data){?>
         <div class="card mb-4">
             <div class="row no-gutters">
                 <div class="col-md-6">
-                    <img src="img/140.webp" class="card-img" title="Чізкейк">
+                    <img src="<?php echo $data['img']; ?>" class="card-img" title="<?php echo $data['title']; ?>">
                 </div>
                 <div class="col-md-6">
                     <div class="card-body">
-                        <h5 class="card-title">Чізкейк</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                            laborum.</p>
-                        <a href="C:\Users\myhaj\sites\mvc_framework\recipe.html">Читати далі</a>
+                        <h5 class="card-title"><?php echo $data["title"];?></h5>
+                        <p class="card-text"><?php echo mb_strimwidth($data["content"],0, 500) . "...";?></p>
+                        <a href="\recipe.php?id=<?php echo $data["id"]; ?>">Читати далі</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card mb-4">
-            <div class="row no-gutters">
-                <div class="col-md-6">
-                    <img src="img/8.webp" class="card-img" title="Борщ">
-                </div>
-                <div class="col-md-6">
-                    <div class="card-body">
-                        <h5 class="card-title">Борщ український</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                            laborum.</p>
-                        <a href="C:\Users\myhaj\sites\mvc_framework\recipe.html">Читати далі</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+       <?php } ?>
     </div>
 </main>
 <?php include "footer.php";?>

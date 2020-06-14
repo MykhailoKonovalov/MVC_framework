@@ -1,3 +1,4 @@
+<?php require_once "data.php";?>
 <nav class="navbar navbar-expand-lg navbar-light">
     <div id="logo">
         <a class="navbar-brand" href="#"> <img src="img\29422-3-cooking-image.png" width="60px">
@@ -16,9 +17,10 @@
                     Категорії
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item text-white" href="#">Категорія 1</a>
-                    <a class="dropdown-item text-white" href="#">Категорія 2</a>
-                    <a class="dropdown-item text-white" href="#">Категорія 3</a>
+                    <?php foreach ($categories as $data){
+                        echo "<a class=\"dropdown-item text-white\" href='#'>". $data["name"] . "</a>";
+                    }?>
+
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -26,9 +28,9 @@
                     Автори
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item text-white" href="#">Автор 1</a>
-                    <a class="dropdown-item text-white" href="#">Автор 2</a>
-                    <a class="dropdown-item text-white" href="#">Автор 3</a>
+                    <?php foreach ($authors as $data){
+                        echo "<a class=\"dropdown-item text-white\" href='#'>". $data["name"] . "</a>";
+                    }?>
                 </div>
             </li>
         </ul>
