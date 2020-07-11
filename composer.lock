@@ -1,11 +1,12 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "255d3e192908f204c92cd290c22aca9c",
-    "packages": [
+    "content-hash": "f4d3e25fe103aeb12da0c0baed2b13b6",
+    "packages": [],
+    "packages-dev": [
         {
             "name": "squizlabs/php_codesniffer",
             "version": "3.5.5",
@@ -58,13 +59,11 @@
             "time": "2020-04-17T01:09:41+00:00"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }

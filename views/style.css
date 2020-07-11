@@ -1,0 +1,41 @@
+nav, .dropdown-menu{
+    background-color: darkslategray;
+}
+
+.dropdown-menu :hover{
+    background-color: #20b2bb;
+}
+
+#search input{
+    margin-right: 2%;
+}
+
+#navigation{
+    margin-left: 20%;
+}
+
+#search{
+    float:right;
+    width: 30%;
+}
+
+#search input{
+    width: 70%;
+}
+
+#signup-form, #signin-form, #profile-form, #recipes-list, #recipe{
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+
+.col-md-8{
+    align-self: center;
+}
+
+.card{
+    padding: 1%;
+}
+#footer{
+    background-color: darkslategray;
+    color: white;
+}

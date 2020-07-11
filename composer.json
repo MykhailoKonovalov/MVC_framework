@@ -1,6 +1,6 @@
 {
-    "name": "myhaj/mvc_framework",
-    "require": {
+    "name": "misha/mvc_framework",
+    "require-dev": {
         "squizlabs/php_codesniffer": "3.5.5"
     }
 }
