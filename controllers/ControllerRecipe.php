@@ -6,7 +6,6 @@ use Config\Controller;
 use Config\View;
 use Models\ModelRecipe;
 
-
 class ControllerRecipe extends Controller
 {
     public function __construct()
@@ -18,12 +17,19 @@ class ControllerRecipe extends Controller
     public function actionIndex()
     {
         $recipe = $this->model->getSingleRecipe($_GET["id"]);
+        $recipeImg = $this->model->getRecipeImages($_GET["id"]);
+        $this->model->getRecipeViews($_GET["id"]);
         $content = array(
             "main" => array(
                 "file" => "ViewRecipe.php",
-                "data" => $recipe
+                "data" => $recipe,
+                "img" => $recipeImg
             ));
-        $contentArray = array_merge(parent::getAuthorsList(), parent::getCategoriesList(), $content);
+        $contentArray = array_merge(
+            (new ControllerMenu())->getAuthorsList(),
+            (new ControllerMenu())->getCategoriesList(),
+            $content
+        );
         $this->view->renderContent($contentArray);
     }
 }

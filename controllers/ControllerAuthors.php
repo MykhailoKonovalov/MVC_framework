@@ -4,24 +4,24 @@ namespace Controllers;
 
 use Config\Controller;
 use Config\View;
-use Models\ModelMain;
+use Models\ModelAuthors;
 
-class ControllerMain extends Controller
+class ControllerAuthors extends Controller
 {
     public function __construct()
     {
-        $this->model = new ModelMain();
+        $this->model = new ModelAuthors();
         $this->view = new View();
     }
 
     public function actionIndex()
     {
-        $recipes = $this->model->getRecipesList();
+        $authors = $this->model->sortedByAuthors($_GET["id"]);
         $content = array(
             "main" => array(
-                "file" => "ViewMain.php",
-                "data" => $recipes
-        ));
+                "file" => "ViewAuthors.php",
+                "data" => $authors
+            ));
         $contentArray = array_merge(
             (new ControllerMenu())->getAuthorsList(),
             (new ControllerMenu())->getCategoriesList(),

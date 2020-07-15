@@ -9,6 +9,9 @@ require_once "Controller.php";
 require_once "Model.php";
 require_once "View.php";
 
+require_once "controllers/ControllerMenu.php";
+require_once "models/ModelMenu.php";
+
 new View();
 new Controller();
 Router::start();

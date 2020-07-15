@@ -2,27 +2,29 @@
 
 namespace Config;
 
+use PDO;
+
 class Model
 {
-    protected $recipesList;
-    protected $recipe;
-    protected $authorsList;
-    protected $categoriesList;
+    protected $connect;
 
-    public function getAuthorsList()
+    public function __construct()
     {
-        if (file_exists("data" . DIRECTORY_SEPARATOR . "dataAuthors.php")) {
-            $this->authorsList = require_once "data" . DIRECTORY_SEPARATOR . "dataAuthors.php";
-        }
-        return $this->authorsList;
+        $this->mysqlConnection();
     }
 
-    public function getCategoriesList()
+    public function mysqlConnection()
     {
-        if (file_exists("data" . DIRECTORY_SEPARATOR . "dataAuthors.php")) {
-            $this->categoriesList = require_once "data" . DIRECTORY_SEPARATOR . "dataCategories.php";
+        $options = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES   => false,
+        ];
+        $this->connect = new PDO("mysql:host=localhost;dbname=cookbook;charset=utf8", "padmin", "ZzA9))7u", $options);
+        if (!isset($this->connect)) {
+            echo "No connection!";
+        } else {
+            return "Yes connection!";
         }
-        return $this->categoriesList;
     }
-
 }

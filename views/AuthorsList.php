@@ -4,7 +4,9 @@
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <?php foreach ($content['authors']['data'] as $row) { ?>
-            <a class="dropdown-item text-white" href='#'><?php echo $row["name"]; ?></a>
+            <a class="dropdown-item text-white" href='/authors/index?id=<?php echo $row["author_id"]; ?>'>
+                <?php echo $row["author_name"]; ?>
+            </a>
         <?php } ?>
     </div>
 </li>

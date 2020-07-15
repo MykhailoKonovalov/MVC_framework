@@ -4,6 +4,7 @@ namespace Router;
 
 use Config\Controller;
 use Controllers;
+use Models\ModelMenu;
 
 class Router
 {
@@ -26,8 +27,6 @@ class Router
 
         if (file_exists("models" . DIRECTORY_SEPARATOR . $modelName . ".php")) {
             require_once "models" . DIRECTORY_SEPARATOR . $modelName . ".php";
-        } else {
-            Router::pageError();
         }
 
         if (file_exists('controllers' . DIRECTORY_SEPARATOR . $controllerName . '.php')) {
@@ -45,16 +44,10 @@ class Router
         } else {
             Router:: error404();
         }
-
     }
 
     public static function error404()
     {
         header("Location:http://localhost/404");
-    }
-
-    public static function pageError()
-    {
-        header("Location:http://localhost/error");
     }
 }
