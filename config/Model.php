@@ -27,4 +27,24 @@ class Model
             return "Yes connection!";
         }
     }
+
+    public function pagination($data, $page, $limit)
+    {
+        $start = ($page - 1) * $limit;
+        $finish = $page * $limit;
+        $pageData = [];
+        if (!empty($data)) {
+            for ($i = $start; $i < $finish; $i++) {
+                if (isset($data[$i])) {
+                    $pageData[] = $data[$i];
+                } else {
+                    continue;
+                }
+            }
+            $countOfPages = ceil(count($data) / $limit);
+            return array($pageData, $countOfPages);
+        } else {
+            return false;
+        }
+    }
 }

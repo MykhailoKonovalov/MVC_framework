@@ -18,7 +18,7 @@ class ControllerRecipe extends Controller
     {
         $recipe = $this->model->getSingleRecipe($_GET["id"]);
         $recipeImg = $this->model->getRecipeImages($_GET["id"]);
-        $this->model->getRecipeViews($_GET["id"]);
+        $this->model->setRecipeViews($_GET["id"]);
         $content = array(
             "main" => array(
                 "file" => "ViewRecipe.php",

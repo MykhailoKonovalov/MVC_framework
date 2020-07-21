@@ -15,22 +15,20 @@ class ControllerMenu extends Controller
     public function getAuthorsList()
     {
         $authorsList = $this->model->getAuthorsList();
-        $content = array(
+        return array(
             "authors" => array(
                 "file" => "AuthorsList.php",
                 "data" => $authorsList
             ));
-        return $content;
     }
 
     public function getCategoriesList()
     {
         $categoriesList = $this->model->getCategoriesList();
-        $content = array(
+        return array(
             "categories" => array(
                 "file" => "CategoriesList.php",
                 "data" => $categoriesList
             ));
-        return $content;
     }
 }

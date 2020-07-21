@@ -5,13 +5,14 @@ namespace Controllers;
 use Config\Controller;
 use Config\Model;
 use Config\View;
-use Models\ModelCategories;
+use Models\ModelSearch;
 
-class ControllerCategories extends Controller
+class ControllerSearch extends Controller
 {
+
     public function __construct()
     {
-        $this->model = new ModelCategories();
+        $this->model = new ModelSearch();
         $this->view = new View();
     }
 
@@ -20,13 +21,14 @@ class ControllerCategories extends Controller
         if (!isset($_GET["page"])) {
             $_GET["page"] = 1;
         }
-        $categories = $this->model->sortedByCategories($_GET["id"]);
-        $data = (new Model())->pagination($categories, $_GET['page'], 5);
+        $query = strip_tags($_POST["query"]);
+        if (!empty($query)) {
+            $result = $this->model->search($query);
+        }
         $content = array(
             "main" => array(
-                "file" => "ViewCategories.php",
-                "data" => $data[0],
-                "count" => $data[1]
+                "file" => "ViewSearch.php",
+                "data" => $result
             ));
         $contentArray = array_merge(
             (new ControllerMenu())->getAuthorsList(),

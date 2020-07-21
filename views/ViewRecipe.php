@@ -17,11 +17,11 @@ $img = $content['main']['img'];?>
                     <?php for ($i = 0; $i <= count($img) - 1; $i++) {
                         if ($i == 0) { ?>
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="<?= $img[$i]['url'];?>">
+                        <img class="d-block w-100" src="<?= $img[$i]->url;?>">
                     </div>
                         <?php } else { ?>
                     <div class="carousel-item ">
-                        <img class="d-block w-100" src="<?= $img[$i]['url'];?>" >
+                        <img class="d-block w-100" src="<?= $img[$i]->url;?>" >
                     </div>
                         <?php }
                     }?>
@@ -37,15 +37,15 @@ $img = $content['main']['img'];?>
 
             </div>
             <div class="card-body">
-                <h5 class="card-title"><?= $data['title'];?></h5>
+                <h2 class="page-header" align="center"><?= $data->title;?></h2>
                 <p class="card-text">Інгредієнти:
-                    <?= $data['ingredients'];?></p>
+                    <?= $data->ingredients;?></p>
                 <p class="card-text">Рецепт:
-                    <?= $data['content'];?></p>
-                <p>Автор: <a href="/authors/index?id=<?= $data['author_id']; ?>"><?= $data['author_name'];?></a></p>
-                <p>Категорія: <a href="/categories/index?id=<?= $data['category_id']; ?>"><?= $data['category_title'];?>
+                    <?= $data->content;?></p>
+                <p>Автор: <a href="/authors/index?id=<?= $data->author_id; ?>"><?= $data->author_name;?></a></p>
+                <p>Категорія: <a href="/categories/index?id=<?= $data->category_id; ?>"><?= $data->category_title;?>
                     </a></p>
-                <p><b><?= $data['views'];?></b> переглядів</p>
+                <p><b><?= $data->views;?></b> переглядів</p>
             </div>
         </div>
     </div>

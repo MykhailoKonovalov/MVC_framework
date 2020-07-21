@@ -6,15 +6,19 @@ use Config\Model;
 
 class ModelMain extends Model
 {
-    protected $recipesList;
+    public $recipesList;
 
     public function getRecipesList()
     {
-        $query = $this->connect->query("select * from recipes left join categories on 
-		categories.category_id = recipes.category_id left join authors on authors.author_id = recipes.author_id
-		left join images on recipes.id = images.recipe_id WHERE images.url LIKE '%Main%' order by id desc");
-        while ($row = $query->fetch()) {
-            $this->recipesList[] = $row;
+        $sql = $this->connect->query("select * from recipes left join images on images.recipe_id = recipes.id 
+        where images.url like '%Main%' order by id desc");
+        while ($row = $sql->fetch()) {
+            $recipe = new Recipes();
+            $recipe->id = $row["id"];
+            $recipe->title = $row["title"];
+            $recipe->content = $row["content"];
+            $recipe->image = $row["url"];
+            $this->recipesList[] = $recipe;
         }
         return $this->recipesList;
     }

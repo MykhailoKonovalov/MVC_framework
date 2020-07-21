@@ -19,6 +19,7 @@
             crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="/img/cooking.png" type="image/png">
     <link rel="stylesheet" text="text/css" href="/style.css" />
+    <script src="/script.js"></script>
     <title>Сайт для трушних кулінарів</title>
 </head>
 <body>

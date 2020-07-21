@@ -6,14 +6,17 @@ use Config\Model;
 
 class ModelMenu extends Model
 {
-    protected $authorsList;
-    protected $categoriesList;
+    public $authorsList;
+    public $categoriesList;
 
     public function getAuthorsList()
     {
-        $query = $this->connect->query("select * from authors");
-        while ($row = $query->fetch()) {
-            $this->authorsList[] = $row;
+        $sql = $this->connect->query("select * from authors");
+        while ($row = $sql->fetch()) {
+            $authors = new Authors();
+            $authors->author_id = $row["author_id"];
+            $authors->author_name = $row["author_name"];
+            $this->authorsList[] = $authors;
         }
         return $this->authorsList;
     }
@@ -22,7 +25,10 @@ class ModelMenu extends Model
     {
         $query = $this->connect->query("select * from categories");
         while ($row = $query->fetch()) {
-            $this->categoriesList[] = $row;
+            $categories = new Categories();
+            $categories->category_id = $row["category_id"];
+            $categories->category_title = $row["category_title"];
+            $this->categoriesList[] = $categories;
         }
         return $this->categoriesList;
     }

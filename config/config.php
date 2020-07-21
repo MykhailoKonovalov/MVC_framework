@@ -11,7 +11,13 @@ require_once "View.php";
 
 require_once "controllers/ControllerMenu.php";
 require_once "models/ModelMenu.php";
+//require_once "controllers/ControllerSearch.php";
+//require_once "models/ModelSearch.php";
 
-new View();
+require_once "models/Authors.php";
+require_once "models/Categories.php";
+require_once "models/Images.php";
+require_once "models/Recipes.php";
+
 new Controller();
 Router::start();

@@ -4,8 +4,8 @@
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <?php foreach ($content['categories']['data'] as $row) { ?>
-            <a class="dropdown-item text-white" href='/categories/index?id=<?php echo $row["category_id"];?>'>
-                <?php echo $row["category_title"]; ?>
+            <a class="dropdown-item text-white" href='/categories/index?id=<?php echo $row->category_id;?>&page=1'>
+                <?php echo $row->category_title; ?>
             </a>
         <?php } ?>
     </div>

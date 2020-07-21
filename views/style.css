@@ -39,3 +39,7 @@ nav, .dropdown-menu{
     background-color: darkslategray;
     color: white;
 }
+
+.pagination {
+    align-content: center;
+}
