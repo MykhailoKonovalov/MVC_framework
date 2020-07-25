@@ -4,6 +4,7 @@ namespace Config;
 
 use Router\Router;
 
+
 require_once "Router.php";
 require_once "Controller.php";
 require_once "Model.php";
@@ -18,6 +19,7 @@ require_once "models/Authors.php";
 require_once "models/Categories.php";
 require_once "models/Images.php";
 require_once "models/Recipes.php";
+require_once "models/Users.php";
 
 new Controller();
 Router::start();

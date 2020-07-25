@@ -48,6 +48,6 @@ class Router
 
     public static function error404()
     {
-        header("Location:http://localhost/404");
+        header("Location:http://cookbook.local/404");
     }
 }
