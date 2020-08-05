@@ -26,5 +26,7 @@
 <?php include("Header.php");?>
 <?php include $content['main']['file'];?>
 <?php include("Footer.php");?>
+<script src="/js/script.js"></script>
+<script src="/js/ajax.js"></script>
 </body>
 </html>
