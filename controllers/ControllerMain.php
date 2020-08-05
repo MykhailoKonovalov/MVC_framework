@@ -36,3 +36,4 @@ class ControllerMain extends Controller
         $this->view->renderContent($contentArray);
     }
 }
+
