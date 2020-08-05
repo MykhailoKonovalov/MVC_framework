@@ -10,9 +10,9 @@ class ModelAuthors extends Model
 
     public function sortedByAuthors($id)
     {
-        $sql = $this->connect->prepare("select * from recipes left join authors 
-        on authors.author_id = recipes.author_id left join images on recipes.id = images.recipe_id 
-        WHERE images.url LIKE '%Main%' AND authors.author_id = :id order by id desc");
+        $sql = $this->connect->prepare("SELECT * FROM recipes LEFT JOIN authors 
+        ON authors.author_id = recipes.author_id  LEFT JOIN images ON recipes.id = images.recipe_id 
+        WHERE images.url LIKE '%Main%' AND authors.author_id = :id ORDER BY id DESC");
         $sql->bindParam(":id", $id);
         $sql->execute();
         while ($row = $sql->fetch()) {

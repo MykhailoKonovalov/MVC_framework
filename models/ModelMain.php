@@ -10,8 +10,8 @@ class ModelMain extends Model
 
     public function getRecipesList()
     {
-        $sql = $this->connect->query("select * from recipes left join images on images.recipe_id = recipes.id 
-        where images.url like '%Main%' order by id desc");
+        $sql = $this->connect->query("SELECT * FROM recipes LEFT JOIN images ON images.recipe_id = recipes.id 
+        WHERE images.url LIKE '%Main%' ORDER BY id DESC");
         while ($row = $sql->fetch()) {
             $recipe = new Recipes();
             $recipe->id = $row["id"];

@@ -8,5 +8,6 @@ class Users
     public $name;
     public $email;
     public $phone;
+    public $avatar;
     public $password;
 }

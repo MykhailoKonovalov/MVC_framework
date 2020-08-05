@@ -13,9 +13,9 @@ class ModelSearch extends Model
         if (strripos($query, "'") !== false) {
             $query = str_replace("'", "\'", $query);
         }
-        $sql = $this->connect->query("select * from recipes left join images on images.recipe_id = recipes.id 
-        where (recipes.title like '%$query%' or recipes.ingredients like '%$query%' or 
-        recipes.content like '%$query%') and images.url like '%Main%'");
+        $sql = $this->connect->query("SELECT * FROM recipes LEFT JOIN images ON images.recipe_id = recipes.id 
+        WHERE (recipes.title LIKE '%$query%' OR recipes.ingredients LIKE '%$query%' OR 
+        recipes.content LIKE '%$query%') AND images.url LIKE '%Main%'");
         $sql->execute();
         while ($row = $sql->fetch()) {
             $recipes = new Recipes();

@@ -45,8 +45,24 @@ $img = $content['main']['img'];?>
                 <p>Автор: <a href="/authors/index?id=<?= $data->author_id; ?>"><?= $data->author_name;?></a></p>
                 <p>Категорія: <a href="/categories/index?id=<?= $data->category_id; ?>"><?= $data->category_title;?>
                     </a></p>
-                <p><b><?= $data->views;?></b> переглядів</p>
+                <div class="row">
+                        <p id="likes_count"></p>
+                        <p id="views_count"><b><?= $data->views;?></b> переглядів</p>
+                </div>
+                <?php if (!empty($_SESSION["id"])) {
+                    if ($content["main"]["likeButton"] == 0) { ?>
+                    <div id="like">
+                        <input type="image" src="/img/heart_default.png" title="Додати до обраного" id="likeImg">
+                    </div>
+                    <?php } elseif ($content["main"]["likeButton"] == 1) { ?>
+                        <div id="like">
+                            <input type="image" src="/img/heart_active.png" title="Додати до обраного" id="likeImg">
+                        </div>
+                    <?php }
+                } ?>
             </div>
+            <?php include_once "Comments.php";?>
+            <?php include_once "CommentForm.php";?>
         </div>
     </div>
 </main>

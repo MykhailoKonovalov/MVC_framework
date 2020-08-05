@@ -18,12 +18,12 @@ class ControllerSignin extends Controller
     {
         $response = [];
         if (!empty($_POST)) {
-            $userData = array(
-                "username" => $_POST["username"],
-                "password" => $_POST["password"]
-            );
-            $response = $this->model->signin($userData);
-            $this->createSession($response[0]);
+            $response = $this->model->signin($_POST);
+            if ($this->createSession($response) === true) {
+                header("Location:http://cookbook.local/profile");
+            } else {
+                header("Location:http://cookbook.local/signin");
+            }
         }
         $content = array(
             "main" => array(
@@ -40,11 +40,11 @@ class ControllerSignin extends Controller
 
     public function createSession($user)
     {
-        $_SESSION["id"] = $user->id;
-        $_SESSION["username"] = $user->name;
-        $_SESSION["phone"] = $user->phone;
-        $_SESSION["email"] = $user->email;
-
-        header("Location:http://cookbook.local/profile");
+        if (!empty($user)) {
+            $_SESSION["id"] = $user->id;
+            return true;
+        } else {
+            return false;
+        }
     }
 }

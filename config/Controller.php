@@ -2,8 +2,6 @@
 
 namespace Config;
 
-use Controllers\ControllerSignin;
-
 class Controller
 {
     public $model;

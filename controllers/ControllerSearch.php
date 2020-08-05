@@ -8,7 +8,6 @@ use Models\ModelSearch;
 
 class ControllerSearch extends Controller
 {
-
     public function __construct()
     {
         $this->model = new ModelSearch();
@@ -20,6 +19,8 @@ class ControllerSearch extends Controller
         $query = strip_tags($_POST["query"]);
         if (!empty($query)) {
             $result = $this->model->search($query);
+        } else {
+            $result = [];
         }
         $content = array(
             "main" => array(

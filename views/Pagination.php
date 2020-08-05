@@ -4,7 +4,7 @@ $finish = $content['main']['count'];
 $url = stristr($_SERVER['REQUEST_URI'], 'page', true);
 $page = $_GET["page"];
 ?>
-<ul class="pagination" style="margin-left: 35%;">
+<ul class="pagination">
     <?php if ($page == 1) { ?>
     <li class="page-item disabled">
         <a class="page-link" href="<?= $url . 'page=1' ?>">

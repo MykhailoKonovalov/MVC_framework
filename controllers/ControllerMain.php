@@ -7,8 +7,6 @@ use Config\Model;
 use Config\View;
 use Models\ModelMain;
 
-require_once "config/Model.php";
-
 class ControllerMain extends Controller
 {
     public function __construct()

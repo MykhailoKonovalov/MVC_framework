@@ -2,9 +2,8 @@
 
 namespace Models;
 
-class Images
+class WishList
 {
-    public $image_id;
-    public $url;
+    public $user_id;
     public $recipe_id;
 }

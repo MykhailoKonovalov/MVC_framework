@@ -6,26 +6,27 @@ use Config\Model;
 
 class ModelSignin extends Model
 {
-    public $userData;
-
-    public function signin($userData)
+    public function signin($data)
     {
-        $sql = $this->connect->prepare("select * from users where name = :username");
-        $sql->bindParam(":username", $userData["username"]);
+        $userData = new Users();
+        $userData->name = $data["username"];
+        $userData->password = $data["password"];
+        $sql = $this->connect->prepare("SELECT * FROM users WHERE name = :username");
+        $sql->bindParam(":username", $userData->name);
         $sql->execute();
+        $user = new Users();
         while ($row = $sql->fetch()) {
-            if (password_verify($userData["password"], $row["password"])) {
-                $user = new Users();
+            if (password_verify($userData->password, $row["password"])) {
                 $user->id = $row["id"];
                 $user->name = $row["name"];
                 $user->email = $row["email"];
                 $user->phone = $row["phone"];
+                $user->avatar = $row["avatar"];
                 $user->password = $row["password"];
-                $this->userData[] = $user;
+                return $user;
             } else {
                 return false;
             }
-            return $this->userData;
         }
     }
 }

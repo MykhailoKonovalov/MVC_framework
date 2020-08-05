@@ -3,7 +3,6 @@
 namespace Controllers;
 
 use Config\Controller;
-use Controllers\ControllerSignin;
 use Models\ModelSignin;
 use Models\ModelSignup;
 use Config\View;
@@ -22,23 +21,18 @@ class ControllerSignup extends Controller
     public function actionIndex()
     {
         if (!empty($_POST)) {
-            $userData = array(
-                "username" => $_POST["username"],
-                "email" => $_POST["email"],
-                "phone" => $_POST["phone"],
-                "password" => $_POST["password"],
-                "repeat_password" => $_POST["repeat_password"]
-            );
-            $response = $this->model->signup($userData);
-            $user = (new ModelSignin())->signin($userData);
-            (new ControllerSignin())->createSession($user[0]);
+            $data = $this->model->signup($_POST);
+                $user = (new ModelSignin())->signin($_POST);
+            if ((new ControllerSignin())->createSession($user) === true) {
+                header("Location:http://cookbook.local/profile");
+            }
         } else {
-            $response = [];
+            $data = [];
         }
             $content = array(
                 "main" => array(
                     "file" => "ViewSignup.php",
-                    "data" => $response
+                    "errors" => $data
                 ));
             $contentArray = array_merge(
                 (new ControllerMenu())->getAuthorsList(),

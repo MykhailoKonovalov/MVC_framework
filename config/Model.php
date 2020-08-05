@@ -2,6 +2,14 @@
 
 namespace Config;
 
+require_once "models/Authors.php";
+require_once "models/Categories.php";
+require_once "models/Comments.php";
+require_once "models/Images.php";
+require_once "models/Recipes.php";
+require_once "models/Users.php";
+require_once "models/WishList.php";
+
 use PDO;
 
 class Model

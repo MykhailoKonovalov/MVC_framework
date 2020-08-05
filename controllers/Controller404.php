@@ -3,7 +3,6 @@
 namespace Controllers;
 
 use Config\Controller;
-use Config\Model;
 use Config\View;
 
 class Controller404 extends Controller

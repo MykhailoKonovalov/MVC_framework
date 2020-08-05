@@ -15,7 +15,7 @@
         <?php include $content['authors']['file']; ?>
         </ul>
     </div>
-    <ul class="navbar-nav" id="user-menu">
+    <ul class="navbar-nav" id="user_menu">
         <?php if (empty($_SESSION["username"])) { ?>
         <li class="nav-item">
             <a class="nav-link text-white" href="/signin">Вхід</a>
@@ -25,10 +25,18 @@
         </li>
         <?php } else { ?>
             <li class="nav-item">
-                <a class="nav-link text-white" href="/profile"><?= $_SESSION["username"]; ?></a>
+                <img class="avatar" src="<?= $_SESSION["avatar"]; ?>">
             </li>
-            <li class="nav-item">
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?= $_SESSION["username"]; ?>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="nav-link text-white" href="/profile">Мій профіль</a>
+                <a class="nav-link text-white" href="/wishlist/index?">Обрані рецепти</a>
                 <a class="nav-link text-white" href="/profile/signout?">Вихід</a>
+                </div>
             </li>
         <?php } ?>
     </ul>

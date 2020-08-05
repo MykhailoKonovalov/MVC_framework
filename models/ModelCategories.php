@@ -10,9 +10,9 @@ class ModelCategories extends Model
 
     public function sortedByCategories($id)
     {
-        $sql = $this->connect->prepare("select * from recipes left join categories on 
-        categories.category_id = recipes.category_id left join images on recipes.id = images.recipe_id 
-        WHERE images.url LIKE '%Main%' AND categories.category_id = :id order by id desc");
+        $sql = $this->connect->prepare("SELECT * FROM recipes  LEFT JOIN categories ON 
+        categories.category_id = recipes.category_id  LEFT JOIN images ON recipes.id = images.recipe_id 
+        WHERE images.url LIKE '%Main%' AND categories.category_id = :id ORDER BY id DESC");
         $sql->bindParam(":id", $id);
         $sql->execute();
         while ($row = $sql->fetch()) {

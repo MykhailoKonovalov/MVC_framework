@@ -9,6 +9,7 @@ class Recipes
     public $ingredients;
     public $content;
     public $views;
+    public $likes;
     public $image;
     public $category_id;
     public $category_title;

@@ -11,7 +11,7 @@ class ModelMenu extends Model
 
     public function getAuthorsList()
     {
-        $sql = $this->connect->query("select * from authors");
+        $sql = $this->connect->query("SELECT * FROM authors");
         while ($row = $sql->fetch()) {
             $authors = new Authors();
             $authors->author_id = $row["author_id"];
@@ -23,7 +23,7 @@ class ModelMenu extends Model
 
     public function getCategoriesList()
     {
-        $query = $this->connect->query("select * from categories");
+        $query = $this->connect->query("SELECT * FROM categories");
         while ($row = $query->fetch()) {
             $categories = new Categories();
             $categories->category_id = $row["category_id"];
