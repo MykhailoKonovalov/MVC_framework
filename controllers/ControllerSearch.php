@@ -2,15 +2,15 @@
 
 namespace Controllers;
 
-use Config\Controller;
-use Config\View;
-use Models\ModelSearch;
+use Core\Controller;
+use Core\View;
+use Models\Mappers\SearchMapper;
 
 class ControllerSearch extends Controller
 {
     public function __construct()
     {
-        $this->model = new ModelSearch();
+        $this->model = new SearchMapper();
         $this->view = new View();
     }
 

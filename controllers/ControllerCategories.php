@@ -2,16 +2,16 @@
 
 namespace Controllers;
 
-use Config\Controller;
-use Config\Model;
-use Config\View;
-use Models\ModelCategories;
+use Core\Controller;
+use Core\Model;
+use Core\View;
+use Models\Mappers\CategoriesMapper;
 
 class ControllerCategories extends Controller
 {
     public function __construct()
     {
-        $this->model = new ModelCategories();
+        $this->model = new CategoriesMapper();
         $this->view = new View();
     }
 

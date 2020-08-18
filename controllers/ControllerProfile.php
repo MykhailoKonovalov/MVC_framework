@@ -2,17 +2,15 @@
 
 namespace Controllers;
 
-use Config\Controller;
-use Models\ModelProfile;
-use Config\View;
-
-require_once "models/ModelSignup.php";
+use Core\Controller;
+use Models\Mappers\ProfileMapper;
+use Core\View;
 
 class ControllerProfile extends Controller
 {
     public function __construct()
     {
-        $this->model = new ModelProfile();
+        $this->model = new ProfileMapper();
         $this->view = new View();
     }
 

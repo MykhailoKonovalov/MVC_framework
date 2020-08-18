@@ -1,10 +1,11 @@
 <?php
 
-namespace Models;
+namespace Models\Mappers;
 
-use Config\Model;
+use Core\Model;
+use Models\Entities\Users;
 
-class ModelSignup extends Model
+class SignupMapper extends Model
 {
     public $errors;
 

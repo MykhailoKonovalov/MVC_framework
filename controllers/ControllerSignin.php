@@ -2,15 +2,15 @@
 
 namespace Controllers;
 
-use Config\Controller;
-use Models\ModelSignin;
-use Config\View;
+use Core\Controller;
+use Models\Mappers\SigninMapper;
+use Core\View;
 
 class ControllerSignin extends Controller
 {
     public function __construct()
     {
-        $this->model = new ModelSignin();
+        $this->model = new SigninMapper();
         $this->view = new View();
     }
 

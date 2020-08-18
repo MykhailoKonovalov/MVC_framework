@@ -34,7 +34,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="nav-link text-white" href="/profile">Мій профіль</a>
-                <a class="nav-link text-white" href="/wishlist/index?">Обрані рецепти</a>
+                <a class="nav-link text-white" href="/wishlist/index?page=1">Обрані рецепти</a>
                 <a class="nav-link text-white" href="/profile/signout?">Вихід</a>
                 </div>
             </li>

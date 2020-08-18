@@ -1,8 +1,11 @@
 {
     "name": "misha/mvc_framework",
     "autoload" : {
-        "psr-12" : {
-            "App\\": "mvc_framework"
+        "psr-4" : {
+            "Controllers\\" : "controllers",
+            "Models\\Mappers\\" : "models/mappers",
+            "Models\\Entities\\" : "models/entities",
+            "Core\\" : "core"
         }
     },
     "require-dev": {

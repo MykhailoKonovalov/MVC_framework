@@ -2,15 +2,15 @@
 
 namespace Controllers;
 
-use Config\Controller;
-use Config\View;
-use Models\ModelRecipe;
+use Core\Controller;
+use Core\View;
+use Models\Mappers\RecipeMapper;
 
 class ControllerRecipe extends Controller
 {
     public function __construct()
     {
-        $this->model = new ModelRecipe();
+        $this->model = new RecipeMapper();
         $this->view = new View();
     }
 

@@ -2,16 +2,16 @@
 
 namespace Controllers;
 
-use Config\Controller;
-use Config\Model;
-use Config\View;
-use Models\ModelMain;
+use Core\Controller;
+use Core\Model;
+use Core\View;
+use Models\Mappers\MainMapper;
 
 class ControllerMain extends Controller
 {
     public function __construct()
     {
-        $this->model = new ModelMain();
+        $this->model = new MainMapper();
         $this->view = new View();
     }
 

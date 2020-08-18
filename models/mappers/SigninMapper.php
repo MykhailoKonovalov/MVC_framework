@@ -1,10 +1,11 @@
 <?php
 
-namespace Models;
+namespace Models\Mappers;
 
-use Config\Model;
+use Core\Model;
+use Models\Entities\Users;
 
-class ModelSignin extends Model
+class SigninMapper extends Model
 {
     public function signin($data)
     {

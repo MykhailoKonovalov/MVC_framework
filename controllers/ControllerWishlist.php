@@ -2,16 +2,16 @@
 
 namespace Controllers;
 
-use Config\Controller;
-use Config\Model;
-use Models\ModelWishlist;
-use Config\View;
+use Core\Controller;
+use Core\Model;
+use Models\Mappers\WishlistMapper;
+use Core\View;
 
 class ControllerWishlist extends Controller
 {
     public function __construct()
     {
-        $this->model = new ModelWishlist();
+        $this->model = new WishlistMapper();
         $this->view = new View();
     }
 

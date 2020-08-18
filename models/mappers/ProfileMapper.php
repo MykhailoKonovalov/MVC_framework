@@ -1,10 +1,11 @@
 <?php
 
-namespace Models;
+namespace Models\Mappers;
 
-use Config\Model;
+use Core\Model;
+use Models\Entities\Users;
 
-class ModelProfile extends Model
+class ProfileMapper extends Model
 {
     public function getUser($id)
     {
@@ -71,9 +72,9 @@ class ModelProfile extends Model
             isset($userData["username"]) && isset($userData["email"]) && isset($userData["phone"]) &&
             isset($userData["oldPassword"])
         ) {
-            $errors["email"] = (new ModelSignup())->checkEmail($userData["email"]);
-            $errors["phone"] = (new ModelSignup())->checkPhone($userData["phone"]);
-            $errors["newPassword"] = (new ModelSignup())->checkPassword($userData["newPassword"]);
+            $errors["email"] = (new SignupMapper())->checkEmail($userData["email"]);
+            $errors["phone"] = (new SignupMapper())->checkPhone($userData["phone"]);
+            $errors["newPassword"] = (new SignupMapper())->checkPassword($userData["newPassword"]);
             return $errors;
         } else {
             $errors["username"] = "Помилка редагування!";

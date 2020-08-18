@@ -2,19 +2,16 @@
 
 namespace Controllers;
 
-use Config\Controller;
-use Models\ModelSignin;
-use Models\ModelSignup;
-use Config\View;
-
-require_once "models/ModelSignin.php";
-require_once "controllers/ControllerSignin.php";
+use Core\Controller;
+use Models\Mappers\SigninMapper;
+use Models\Mappers\SignupMapper;
+use Core\View;
 
 class ControllerSignup extends Controller
 {
     public function __construct()
     {
-        $this->model = new ModelSignup();
+        $this->model = new SignupMapper();
         $this->view = new View();
     }
 
@@ -22,7 +19,7 @@ class ControllerSignup extends Controller
     {
         if (!empty($_POST)) {
             $data = $this->model->signup($_POST);
-                $user = (new ModelSignin())->signin($_POST);
+                $user = (new SigninMapper())->signin($_POST);
             if ((new ControllerSignin())->createSession($user) === true) {
                 header("Location:http://cookbook.local/profile");
             }

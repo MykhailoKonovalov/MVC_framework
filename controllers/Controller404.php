@@ -2,8 +2,8 @@
 
 namespace Controllers;
 
-use Config\Controller;
-use Config\View;
+use Core\Controller;
+use Core\View;
 
 class Controller404 extends Controller
 {

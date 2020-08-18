@@ -1,10 +1,13 @@
 <?php
 
-namespace Models;
+namespace Models\Mappers;
 
-use Config\Model;
+use Core\Model;
+use Models\Entities\Recipes;
+use Models\Entities\Images;
+use Models\Entities\Comments;
 
-class ModelRecipe extends Model
+class RecipeMapper extends Model
 {
     public $recipe;
     public $image;

@@ -1,10 +1,11 @@
 <?php
 
-namespace Models;
+namespace Models\Mappers;
 
-use Config\Model;
+use Core\Model;
+use Models\Entities\Recipes;
 
-class ModelCategories extends Model
+class CategoriesMapper extends Model
 {
     public $categories;
 

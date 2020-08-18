@@ -1,10 +1,12 @@
 <?php
 
-namespace Models;
+namespace Models\Mappers;
 
-use Config\Model;
+use Core\Model;
+use Models\Entities\Authors;
+use Models\Entities\Categories;
 
-class ModelMenu extends Model
+class MenuMapper extends Model
 {
     public $authorsList;
     public $categoriesList;

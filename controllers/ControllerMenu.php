@@ -2,14 +2,14 @@
 
 namespace Controllers;
 
-use Config\Controller;
-use Models\ModelMenu;
+use Core\Controller;
+use Models\Mappers\MenuMapper;
 
 class ControllerMenu extends Controller
 {
     public function __construct()
     {
-        $this->model = new ModelMenu();
+        $this->model = new MenuMapper();
     }
 
     public function getAuthorsList()

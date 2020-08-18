@@ -2,16 +2,16 @@
 
 namespace Controllers;
 
-use Config\Controller;
-use Config\Model;
-use Config\View;
-use Models\ModelAuthors;
+use Core\Controller;
+use Core\Model;
+use Core\View;
+use Models\Mappers\AuthorsMapper;
 
 class ControllerAuthors extends Controller
 {
     public function __construct()
     {
-        $this->model = new ModelAuthors();
+        $this->model = new AuthorsMapper();
         $this->view = new View();
     }
 

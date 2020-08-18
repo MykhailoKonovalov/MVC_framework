@@ -1,12 +1,12 @@
 <?php
 
-namespace Models;
+namespace Models\Mappers;
 
-use Config\Model;
+use Core\Model;
+use Models\Entities\Recipes;
+use Models\Entities\WishList;
 
-require_once "models/ModelRecipe.php";
-
-class ModelWishlist extends Model
+class WishlistMapper extends Model
 {
     public $list;
 
@@ -39,7 +39,7 @@ class ModelWishlist extends Model
 
     public function addRecipe($user, $recipe)
     {
-        $likes = (new ModelRecipe())->checkLike($recipe, $user);
+        $likes = (new RecipeMapper())->checkLike($recipe, $user);
         if ($likes === 0) {
             $list = new WishList();
             $list->user_id = $user;

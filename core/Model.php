@@ -1,14 +1,6 @@
 <?php
 
-namespace Config;
-
-require_once "models/Authors.php";
-require_once "models/Categories.php";
-require_once "models/Comments.php";
-require_once "models/Images.php";
-require_once "models/Recipes.php";
-require_once "models/Users.php";
-require_once "models/WishList.php";
+namespace Core;
 
 use PDO;
 
@@ -28,12 +20,12 @@ class Model
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES   => false,
         ];
-        $this->connect = new PDO("mysql:host=localhost;dbname=cookbook;charset=utf8", "padmin", "ZzA9))7u", $options);
-        if (!isset($this->connect)) {
-            echo "No connection!";
-        } else {
-            return "Yes connection!";
-        }
+        $this->connect = new PDO(
+            "mysql:host=localhost;dbname=cookbook;charset=utf8",
+            "padmin",
+            "ZzA9))7u",
+            $options
+        );
     }
 
     public function pagination($data, $page, $limit)
